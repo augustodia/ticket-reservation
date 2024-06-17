@@ -18,7 +18,6 @@ export class EventsService {
   }
 
   findOne(id: string) {
-    console.log(id);
     return this.prismaService.event.findUnique({
       where: { id },
     });
