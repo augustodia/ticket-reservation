@@ -8,22 +8,32 @@ export class EventsService {
   constructor(private prismaService: PrismaService) {}
 
   create(createEventDto: CreateEventDto) {
-    return 'This action adds a new event';
+    return this.prismaService.event.create({
+      data: createEventDto,
+    });
   }
 
   findAll() {
-    return `This action returns all events`;
+    return this.prismaService.event.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} event`;
+  findOne(id: string) {
+    console.log(id);
+    return this.prismaService.event.findUnique({
+      where: { id },
+    });
   }
 
-  update(id: number, updateEventDto: UpdateEventDto) {
-    return `This action updates a #${id} event`;
+  update(id: string, updateEventDto: UpdateEventDto) {
+    return this.prismaService.event.update({
+      data: updateEventDto,
+      where: { id },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} event`;
+  remove(id: string) {
+    return this.prismaService.event.delete({
+      where: { id },
+    });
   }
 }
