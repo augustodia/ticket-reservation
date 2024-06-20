@@ -73,6 +73,6 @@ Content-Type: application/json
 
 {
   "spots": ["{{spotName}}"],
-  "ticketKind": "full",
+  "ticket_kind": "full",
   "email": "teste@teste.com"
 }
